@@ -1,0 +1,1000 @@
+#15
+_program
+  #15
+  _class
+    StackNode
+    Object
+    "stack.cl"
+    (
+    #16
+    _attr
+      item
+      Object
+      #0
+      _no_expr
+      : _no_type
+    #17
+    _attr
+      next
+      StackNode
+      #0
+      _no_expr
+      : _no_type
+    #20
+    _method
+      init
+      #20
+      _formal
+        i
+        Object
+      #20
+      _formal
+        n
+        StackNode
+      StackNode
+      #21
+      _block
+        #22
+        _assign
+          item
+          #22
+          _object
+            i
+          : _no_type
+        : _no_type
+        #23
+        _assign
+          next
+          #23
+          _object
+            n
+          : _no_type
+        : _no_type
+        #24
+        _object
+          self
+        : _no_type
+      : _no_type
+    #29
+    _method
+      getItem
+      Object
+      #30
+      _object
+        item
+      : _no_type
+    #34
+    _method
+      getNext
+      StackNode
+      #35
+      _object
+        next
+      : _no_type
+    )
+  #45
+  _class
+    Stack
+    IO
+    "stack.cl"
+    (
+    #46
+    _attr
+      top
+      StackNode
+      #0
+      _no_expr
+      : _no_type
+    #50
+    _method
+      isEmpty
+      Bool
+      #51
+      _isvoid
+        #51
+        _object
+          top
+        : _no_type
+      : _no_type
+    #56
+    _method
+      push
+      #56
+      _formal
+        item
+        Object
+      SELF_TYPE
+      #57
+      _block
+        #58
+        _let
+          new_node
+          StackNode
+          #58
+          _dispatch
+            #58
+            _new
+              StackNode
+            : _no_type
+            init
+            (
+            #58
+            _object
+              item
+            : _no_type
+            #58
+            _object
+              top
+            : _no_type
+            )
+          : _no_type
+          #59
+          _assign
+            top
+            #59
+            _object
+              new_node
+            : _no_type
+          : _no_type
+        : _no_type
+        #60
+        _object
+          self
+        : _no_type
+      : _no_type
+    #66
+    _method
+      peek
+      Object
+      #67
+      _cond
+        #67
+        _dispatch
+          #67
+          _object
+            self
+          : _no_type
+          isEmpty
+          (
+          )
+        : _no_type
+        #68
+        _block
+          #69
+          _dispatch
+            #69
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #69
+            _string
+              "Error: peek from an empty stack.\n"
+            : _no_type
+            )
+          : _no_type
+          #70
+          _dispatch
+            #70
+            _object
+              self
+            : _no_type
+            abort
+            (
+            )
+          : _no_type
+          #71
+          _new
+            Object
+          : _no_type
+        : _no_type
+        #74
+        _dispatch
+          #74
+          _object
+            top
+          : _no_type
+          getItem
+          (
+          )
+        : _no_type
+      : _no_type
+    #80
+    _method
+      pop
+      Object
+      #81
+      _cond
+        #81
+        _dispatch
+          #81
+          _object
+            self
+          : _no_type
+          isEmpty
+          (
+          )
+        : _no_type
+        #82
+        _block
+          #83
+          _dispatch
+            #83
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #83
+            _string
+              "Error: pop from an empty stack.\n"
+            : _no_type
+            )
+          : _no_type
+          #84
+          _dispatch
+            #84
+            _object
+              self
+            : _no_type
+            abort
+            (
+            )
+          : _no_type
+          #85
+          _new
+            Object
+          : _no_type
+        : _no_type
+        #88
+        _let
+          item_to_return
+          Object
+          #88
+          _dispatch
+            #88
+            _object
+              top
+            : _no_type
+            getItem
+            (
+            )
+          : _no_type
+          #89
+          _block
+            #90
+            _assign
+              top
+              #90
+              _dispatch
+                #90
+                _object
+                  top
+                : _no_type
+                getNext
+                (
+                )
+              : _no_type
+            : _no_type
+            #91
+            _object
+              item_to_return
+            : _no_type
+          : _no_type
+        : _no_type
+      : _no_type
+    #98
+    _method
+      print
+      SELF_TYPE
+      #99
+      _block
+        #100
+        _cond
+          #100
+          _dispatch
+            #100
+            _object
+              self
+            : _no_type
+            isEmpty
+            (
+            )
+          : _no_type
+          #101
+          _dispatch
+            #101
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #101
+            _string
+              "Stack is empty.\n"
+            : _no_type
+            )
+          : _no_type
+          #103
+          _block
+            #104
+            _dispatch
+              #104
+              _object
+                self
+              : _no_type
+              out_string
+              (
+              #104
+              _string
+                "---- Top of Stack ----\n"
+              : _no_type
+              )
+            : _no_type
+            #105
+            _let
+              current
+              StackNode
+              #105
+              _object
+                top
+              : _no_type
+              #107
+              _loop
+                #107
+                _comp
+                  #107
+                  _isvoid
+                    #107
+                    _object
+                      current
+                    : _no_type
+                  : _no_type
+                : _no_type
+                #108
+                _block
+                  #110
+                  _typcase
+                    #110
+                    _dispatch
+                      #110
+                      _object
+                        current
+                      : _no_type
+                      getItem
+                      (
+                      )
+                    : _no_type
+                    #111
+                    _branch
+                      s
+                      String
+                      #111
+                      _block
+                        #111
+                        _dispatch
+                          #111
+                          _object
+                            self
+                          : _no_type
+                          out_string
+                          (
+                          #111
+                          _object
+                            s
+                          : _no_type
+                          )
+                        : _no_type
+                        #111
+                        _dispatch
+                          #111
+                          _object
+                            self
+                          : _no_type
+                          out_string
+                          (
+                          #111
+                          _string
+                            "\n"
+                          : _no_type
+                          )
+                        : _no_type
+                      : _no_type
+                    #112
+                    _branch
+                      i
+                      Int
+                      #112
+                      _block
+                        #112
+                        _dispatch
+                          #112
+                          _object
+                            self
+                          : _no_type
+                          out_int
+                          (
+                          #112
+                          _object
+                            i
+                          : _no_type
+                          )
+                        : _no_type
+                        #112
+                        _dispatch
+                          #112
+                          _object
+                            self
+                          : _no_type
+                          out_string
+                          (
+                          #112
+                          _string
+                            "\n"
+                          : _no_type
+                          )
+                        : _no_type
+                      : _no_type
+                    #113
+                    _branch
+                      o
+                      Object
+                      #113
+                      _dispatch
+                        #113
+                        _object
+                          self
+                        : _no_type
+                        out_string
+                        (
+                        #113
+                        _string
+                          "Unprintable Object\n"
+                        : _no_type
+                        )
+                      : _no_type
+                  : _no_type
+                  #115
+                  _assign
+                    current
+                    #115
+                    _dispatch
+                      #115
+                      _object
+                        current
+                      : _no_type
+                      getNext
+                      (
+                      )
+                    : _no_type
+                  : _no_type
+                : _no_type
+              : _no_type
+            : _no_type
+            #118
+            _dispatch
+              #118
+              _object
+                self
+              : _no_type
+              out_string
+              (
+              #118
+              _string
+                "---- Bottom of Stack ----\n"
+              : _no_type
+              )
+            : _no_type
+          : _no_type
+        : _no_type
+        #121
+        _object
+          self
+        : _no_type
+      : _no_type
+    )
+  #131
+  _class
+    Main
+    IO
+    "stack.cl"
+    (
+    #132
+    _method
+      main
+      Object
+      #133
+      _let
+        my_stack
+        Stack
+        #133
+        _new
+          Stack
+        : _no_type
+        #134
+        _block
+          #135
+          _dispatch
+            #135
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #135
+            _string
+              "--- Stack Demo ---\n\n"
+            : _no_type
+            )
+          : _no_type
+          #138
+          _dispatch
+            #138
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #138
+            _string
+              "Is stack empty? "
+            : _no_type
+            )
+          : _no_type
+          #139
+          _cond
+            #139
+            _dispatch
+              #139
+              _object
+                my_stack
+              : _no_type
+              isEmpty
+              (
+              )
+            : _no_type
+            #139
+            _dispatch
+              #139
+              _object
+                self
+              : _no_type
+              out_string
+              (
+              #139
+              _string
+                "Yes\n"
+              : _no_type
+              )
+            : _no_type
+            #139
+            _dispatch
+              #139
+              _object
+                self
+              : _no_type
+              out_string
+              (
+              #139
+              _string
+                "No\n"
+              : _no_type
+              )
+            : _no_type
+          : _no_type
+          #140
+          _dispatch
+            #140
+            _object
+              my_stack
+            : _no_type
+            print
+            (
+            )
+          : _no_type
+          #141
+          _dispatch
+            #141
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #141
+            _string
+              "\n"
+            : _no_type
+            )
+          : _no_type
+          #144
+          _dispatch
+            #144
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #144
+            _string
+              "Pushing 'Alice', 100, 'Bob'...\n"
+            : _no_type
+            )
+          : _no_type
+          #145
+          _dispatch
+            #145
+            _object
+              my_stack
+            : _no_type
+            push
+            (
+            #145
+            _string
+              "Alice"
+            : _no_type
+            )
+          : _no_type
+          #146
+          _dispatch
+            #146
+            _object
+              my_stack
+            : _no_type
+            push
+            (
+            #146
+            _int
+              100
+            : _no_type
+            )
+          : _no_type
+          #147
+          _dispatch
+            #147
+            _object
+              my_stack
+            : _no_type
+            push
+            (
+            #147
+            _string
+              "Bob"
+            : _no_type
+            )
+          : _no_type
+          #148
+          _dispatch
+            #148
+            _object
+              my_stack
+            : _no_type
+            print
+            (
+            )
+          : _no_type
+          #149
+          _dispatch
+            #149
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #149
+            _string
+              "\n"
+            : _no_type
+            )
+          : _no_type
+          #152
+          _dispatch
+            #152
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #152
+            _string
+              "Peeking top element: "
+            : _no_type
+            )
+          : _no_type
+          #153
+          _typcase
+            #153
+            _dispatch
+              #153
+              _object
+                my_stack
+              : _no_type
+              peek
+              (
+              )
+            : _no_type
+            #154
+            _branch
+              s
+              String
+              #154
+              _dispatch
+                #154
+                _object
+                  self
+                : _no_type
+                out_string
+                (
+                #154
+                _object
+                  s
+                : _no_type
+                )
+              : _no_type
+            #155
+            _branch
+              i
+              Int
+              #155
+              _dispatch
+                #155
+                _object
+                  self
+                : _no_type
+                out_int
+                (
+                #155
+                _object
+                  i
+                : _no_type
+                )
+              : _no_type
+            #156
+            _branch
+              o
+              Object
+              #156
+              _dispatch
+                #156
+                _object
+                  self
+                : _no_type
+                out_string
+                (
+                #156
+                _string
+                  "Object"
+                : _no_type
+                )
+              : _no_type
+          : _no_type
+          #158
+          _dispatch
+            #158
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #158
+            _string
+              "\n\n"
+            : _no_type
+            )
+          : _no_type
+          #161
+          _dispatch
+            #161
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #161
+            _string
+              "Popping an element...\n"
+            : _no_type
+            )
+          : _no_type
+          #162
+          _dispatch
+            #162
+            _object
+              my_stack
+            : _no_type
+            pop
+            (
+            )
+          : _no_type
+          #163
+          _dispatch
+            #163
+            _object
+              my_stack
+            : _no_type
+            print
+            (
+            )
+          : _no_type
+          #164
+          _dispatch
+            #164
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #164
+            _string
+              "\n"
+            : _no_type
+            )
+          : _no_type
+          #167
+          _dispatch
+            #167
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #167
+            _string
+              "Is stack empty? "
+            : _no_type
+            )
+          : _no_type
+          #168
+          _cond
+            #168
+            _dispatch
+              #168
+              _object
+                my_stack
+              : _no_type
+              isEmpty
+              (
+              )
+            : _no_type
+            #168
+            _dispatch
+              #168
+              _object
+                self
+              : _no_type
+              out_string
+              (
+              #168
+              _string
+                "Yes\n"
+              : _no_type
+              )
+            : _no_type
+            #168
+            _dispatch
+              #168
+              _object
+                self
+              : _no_type
+              out_string
+              (
+              #168
+              _string
+                "No\n"
+              : _no_type
+              )
+            : _no_type
+          : _no_type
+          #169
+          _dispatch
+            #169
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #169
+            _string
+              "\n"
+            : _no_type
+            )
+          : _no_type
+          #172
+          _dispatch
+            #172
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #172
+            _string
+              "Popping all elements...\n"
+            : _no_type
+            )
+          : _no_type
+          #173
+          _dispatch
+            #173
+            _object
+              my_stack
+            : _no_type
+            pop
+            (
+            )
+          : _no_type
+          #174
+          _dispatch
+            #174
+            _object
+              my_stack
+            : _no_type
+            pop
+            (
+            )
+          : _no_type
+          #175
+          _dispatch
+            #175
+            _object
+              my_stack
+            : _no_type
+            print
+            (
+            )
+          : _no_type
+          #176
+          _dispatch
+            #176
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #176
+            _string
+              "\n"
+            : _no_type
+            )
+          : _no_type
+          #179
+          _dispatch
+            #179
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #179
+            _string
+              "Now trying to pop from an empty stack...\n"
+            : _no_type
+            )
+          : _no_type
+          #180
+          _dispatch
+            #180
+            _object
+              my_stack
+            : _no_type
+            pop
+            (
+            )
+          : _no_type
+          #181
+          _dispatch
+            #181
+            _object
+              self
+            : _no_type
+            out_string
+            (
+            #181
+            _string
+              "This line will not be reached.\n"
+            : _no_type
+            )
+          : _no_type
+        : _no_type
+      : _no_type
+    )

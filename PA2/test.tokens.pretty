@@ -1,0 +1,514 @@
+Line name:
+  "test.cl"
+
+Line 5:
+  CLASS
+  TYPEID       CellularAutomaton
+  INHERITS
+  TYPEID       IO
+  '{'
+
+Line 6:
+  OBJECTID     population_map
+  ':'
+  TYPEID       String
+  ';'
+
+Line 8:
+  OBJECTID     init
+  '('
+  OBJECTID     map
+  ':'
+  TYPEID       String
+  ')'
+  ':'
+  TYPEID       SELF_TYPE
+  '{'
+
+Line 9:
+  '{'
+
+Line 10:
+  OBJECTID     population_map
+  ASSIGN
+  OBJECTID     map
+  ';'
+
+Line 11:
+  OBJECTID     self
+  ';'
+
+Line 12:
+  '}'
+
+Line 13:
+  '}'
+  ';'
+
+Line 15:
+  OBJECTID     print
+  '('
+  ')'
+  ':'
+  TYPEID       SELF_TYPE
+  '{'
+
+Line 16:
+  '{'
+
+Line 17:
+  OBJECTID     out_string
+  '('
+  OBJECTID     population_map
+  '.'
+  OBJECTID     concat
+  '('
+  STR_CONST    "\n"
+  ')'
+  ')'
+  ';'
+
+Line 18:
+  OBJECTID     self
+  ';'
+
+Line 19:
+  '}'
+
+Line 20:
+  '}'
+  ';'
+
+Line 22:
+  OBJECTID     num_cells
+  '('
+  ')'
+  ':'
+  TYPEID       Int
+  '{'
+
+Line 23:
+  OBJECTID     population_map
+  '.'
+  OBJECTID     length
+  '('
+  ')'
+
+Line 24:
+  '}'
+  ';'
+
+Line 26:
+  OBJECTID     cell
+  '('
+  OBJECTID     position
+  ':'
+  TYPEID       Int
+  ')'
+  ':'
+  TYPEID       String
+  '{'
+
+Line 27:
+  OBJECTID     population_map
+  '.'
+  OBJECTID     substr
+  '('
+  OBJECTID     position
+  ','
+  INT_CONST    1
+  ')'
+
+Line 28:
+  '}'
+  ';'
+
+Line 30:
+  OBJECTID     cell_left_neighbor
+  '('
+  OBJECTID     position
+  ':'
+  TYPEID       Int
+  ')'
+  ':'
+  TYPEID       String
+  '{'
+
+Line 31:
+  IF
+  OBJECTID     position
+  '='
+  INT_CONST    0
+  THEN
+
+Line 32:
+  OBJECTID     cell
+  '('
+  OBJECTID     num_cells
+  '('
+  ')'
+  '-'
+  INT_CONST    1
+  ')'
+
+Line 33:
+  ELSE
+
+Line 34:
+  OBJECTID     cell
+  '('
+  OBJECTID     position
+  '-'
+  INT_CONST    1
+  ')'
+
+Line 35:
+  FI
+
+Line 36:
+  '}'
+  ';'
+
+Line 38:
+  OBJECTID     cell_right_neighbor
+  '('
+  OBJECTID     position
+  ':'
+  TYPEID       Int
+  ')'
+  ':'
+  TYPEID       String
+  '{'
+
+Line 39:
+  IF
+  OBJECTID     position
+  '='
+  OBJECTID     num_cells
+  '('
+  ')'
+  '-'
+  INT_CONST    1
+  THEN
+
+Line 40:
+  OBJECTID     cell
+  '('
+  INT_CONST    0
+  ')'
+
+Line 41:
+  ELSE
+
+Line 42:
+  OBJECTID     cell
+  '('
+  OBJECTID     position
+  '+'
+  INT_CONST    1
+  ')'
+
+Line 43:
+  FI
+
+Line 44:
+  '}'
+  ';'
+
+Line 48:
+  OBJECTID     cell_at_next_evolution
+  '('
+  OBJECTID     position
+  ':'
+  TYPEID       Int
+  ')'
+  ':'
+  TYPEID       String
+  '{'
+
+Line 49:
+  IF
+  '('
+  IF
+  OBJECTID     cell
+  '('
+  OBJECTID     position
+  ')'
+  '='
+  STR_CONST    "X"
+  THEN
+  INT_CONST    1
+  ELSE
+  INT_CONST    0
+  FI
+
+Line 50:
+  '+'
+  IF
+  OBJECTID     cell_left_neighbor
+  '('
+  OBJECTID     position
+  ')'
+  '='
+  STR_CONST    "X"
+  THEN
+  INT_CONST    1
+  ELSE
+  INT_CONST    0
+  FI
+
+Line 51:
+  '+'
+  IF
+  OBJECTID     cell_right_neighbor
+  '('
+  OBJECTID     position
+  ')'
+  '='
+  STR_CONST    "X"
+  THEN
+  INT_CONST    1
+  ELSE
+  INT_CONST    0
+  FI
+
+Line 52:
+  '='
+  INT_CONST    1
+  ')'
+
+Line 53:
+  THEN
+
+Line 54:
+  STR_CONST    "X"
+
+Line 55:
+  ELSE
+
+Line 56:
+  STR_CONST    "."
+
+Line 57:
+  FI
+
+Line 58:
+  '}'
+  ';'
+
+Line 60:
+  OBJECTID     evolve
+  '('
+  ')'
+  ':'
+  TYPEID       SELF_TYPE
+  '{'
+
+Line 61:
+  '('
+  LET
+  OBJECTID     position
+  ':'
+  TYPEID       Int
+  IN
+
+Line 62:
+  '('
+  LET
+  OBJECTID     num
+  ':'
+  TYPEID       Int
+  ASSIGN
+  OBJECTID     num_cells
+  '('
+  ')'
+  IN
+
+Line 63:
+  '('
+  LET
+  OBJECTID     temp
+  ':'
+  TYPEID       String
+  IN
+
+Line 64:
+  '{'
+
+Line 65:
+  WHILE
+  OBJECTID     position
+  '<'
+  OBJECTID     num
+  LOOP
+
+Line 66:
+  '{'
+
+Line 67:
+  OBJECTID     temp
+  ASSIGN
+  OBJECTID     temp
+  '.'
+  OBJECTID     concat
+  '('
+  OBJECTID     cell_at_next_evolution
+  '('
+  OBJECTID     position
+  ')'
+  ')'
+  ';'
+
+Line 68:
+  OBJECTID     position
+  ASSIGN
+  OBJECTID     position
+  '+'
+  INT_CONST    1
+  ';'
+
+Line 69:
+  '}'
+
+Line 70:
+  POOL
+  ';'
+
+Line 71:
+  OBJECTID     population_map
+  ASSIGN
+  OBJECTID     temp
+  ';'
+
+Line 72:
+  OBJECTID     self
+  ';'
+
+Line 73:
+  '}'
+
+Line 74:
+  ')'
+  ')'
+  ')'
+
+Line 75:
+  '}'
+  ';'
+
+Line 76:
+  '}'
+  ';'
+
+Line 78:
+  CLASS
+  TYPEID       Main
+  '{'
+
+Line 79:
+  OBJECTID     cells
+  ':'
+  TYPEID       CellularAutomaton
+  ';'
+
+Line 81:
+  OBJECTID     main
+  '('
+  ')'
+  ':'
+  TYPEID       SELF_TYPE
+  '{'
+
+Line 82:
+  '{'
+
+Line 83:
+  OBJECTID     cells
+  ASSIGN
+  '('
+  NEW
+  TYPEID       CellularAutomaton
+  ')'
+  '.'
+  OBJECTID     init
+  '('
+  STR_CONST    "         X         "
+  ')'
+  ';'
+
+Line 84:
+  OBJECTID     cells
+  '.'
+  OBJECTID     print
+  '('
+  ')'
+  ';'
+
+Line 85:
+  '('
+  LET
+  OBJECTID     countdown
+  ':'
+  TYPEID       Int
+  ASSIGN
+  INT_CONST    20
+  IN
+
+Line 86:
+  WHILE
+  INT_CONST    0
+  '<'
+  OBJECTID     countdown
+  LOOP
+
+Line 87:
+  '{'
+
+Line 88:
+  OBJECTID     cells
+  '.'
+  OBJECTID     evolve
+  '('
+  ')'
+  ';'
+
+Line 89:
+  OBJECTID     cells
+  '.'
+  OBJECTID     print
+  '('
+  ')'
+  ';'
+
+Line 90:
+  OBJECTID     countdown
+  ASSIGN
+  OBJECTID     countdown
+  '-'
+  INT_CONST    1
+  ';'
+
+Line 91:
+  '}'
+
+Line 92:
+  POOL
+
+Line 93:
+  ')'
+  ';'
+
+Line 94:
+  OBJECTID     self
+  ';'
+
+Line 95:
+  '}'
+
+Line 96:
+  '}'
+  ';'
+
+Line 97:
+  '}'
+  ';'
