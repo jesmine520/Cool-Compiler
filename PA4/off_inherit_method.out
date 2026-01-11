@@ -1,0 +1,45 @@
+#1
+_program
+  #1
+  _class
+    A
+    Object
+    "inherit_method.cl"
+    (
+    #2
+    _method
+      foo
+      Int
+      #2
+      _int
+        1
+      : Int
+    )
+  #5
+  _class
+    B
+    A
+    "inherit_method.cl"
+    (
+    )
+  #7
+  _class
+    Main
+    Object
+    "inherit_method.cl"
+    (
+    #8
+    _method
+      main
+      Int
+      #8
+      _dispatch
+        #8
+        _new
+          B
+        : B
+        foo
+        (
+        )
+      : Int
+    )

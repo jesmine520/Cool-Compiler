@@ -1,0 +1,2 @@
+assign_undeclared.cl:2: Assignment to undeclared variable y.
+Compilation halted due to static semantic errors.

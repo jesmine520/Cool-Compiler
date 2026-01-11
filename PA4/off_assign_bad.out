@@ -1,0 +1,3 @@
+assign_bad.cl:3: Type Bool of assigned expression does not conform to declared type Int of identifier x.
+assign_bad.cl:3: Inferred return type Bool of method main does not conform to declared return type Int.
+Compilation halted due to static semantic errors.

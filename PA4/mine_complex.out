@@ -1,0 +1,1043 @@
+#11
+_program
+  #11
+  _class
+    Shape
+    Object
+    "complex.cl"
+    (
+    #12
+    _attr
+      x
+      Int
+      #12
+      _int
+        0
+      : Int
+    #13
+    _attr
+      y
+      Int
+      #13
+      _int
+        0
+      : Int
+    #14
+    _attr
+      name
+      String
+      #14
+      _string
+        "Generic Shape"
+      : String
+    #17
+    _method
+      init
+      #17
+      _formal
+        newX
+        Int
+      #17
+      _formal
+        newY
+        Int
+      #17
+      _formal
+        newName
+        String
+      SELF_TYPE
+      #18
+      _block
+        #19
+        _assign
+          x
+          #19
+          _object
+            newX
+          : Int
+        : Int
+        #20
+        _assign
+          y
+          #20
+          _object
+            newY
+          : Int
+        : Int
+        #21
+        _assign
+          name
+          #21
+          _object
+            newName
+          : String
+        : String
+        #22
+        _object
+          self
+        : SELF_TYPE
+      : SELF_TYPE
+    #27
+    _method
+      get_type_name
+      String
+      #28
+      _object
+        name
+      : String
+    #32
+    _method
+      print_info
+      #32
+      _formal
+        io
+        IO
+      IO
+      #33
+      _block
+        #34
+        _dispatch
+          #34
+          _dispatch
+            #34
+            _dispatch
+              #34
+              _object
+                io
+              : IO
+              out_string
+              (
+              #34
+              _string
+                "Shape<"
+              : String
+              )
+            : IO
+            out_string
+            (
+            #34
+            _object
+              name
+            : String
+            )
+          : IO
+          out_string
+          (
+          #34
+          _string
+            ">"
+          : String
+          )
+        : IO
+        #35
+        _dispatch
+          #35
+          _dispatch
+            #35
+            _dispatch
+              #35
+              _dispatch
+                #35
+                _dispatch
+                  #35
+                  _object
+                    io
+                  : IO
+                  out_string
+                  (
+                  #35
+                  _string
+                    " at ("
+                  : String
+                  )
+                : IO
+                out_int
+                (
+                #35
+                _object
+                  x
+                : Int
+                )
+              : IO
+              out_string
+              (
+              #35
+              _string
+                ", "
+              : String
+              )
+            : IO
+            out_int
+            (
+            #35
+            _object
+              y
+            : Int
+            )
+          : IO
+          out_string
+          (
+          #35
+          _string
+            ")\n"
+          : String
+          )
+        : IO
+      : IO
+    )
+  #41
+  _class
+    Circle
+    Shape
+    "complex.cl"
+    (
+    #42
+    _attr
+      radius
+      Int
+      #0
+      _no_expr
+      : _no_type
+    #45
+    _method
+      get_type_name
+      String
+      #46
+      _string
+        "Circle"
+      : String
+    #51
+    _method
+      area
+      Int
+      #52
+      _let
+        pi_times_100
+        Int
+        #52
+        _int
+          314
+        : Int
+        #53
+        _divide
+          #53
+          _mul
+            #53
+            _mul
+              #53
+              _object
+                pi_times_100
+              : Int
+              #53
+              _object
+                radius
+              : Int
+            : Int
+            #53
+            _object
+              radius
+            : Int
+          : Int
+          #53
+          _int
+            100
+          : Int
+        : Int
+      : Int
+    #57
+    _method
+      init_circle
+      #57
+      _formal
+        newX
+        Int
+      #57
+      _formal
+        newY
+        Int
+      #57
+      _formal
+        newR
+        Int
+      SELF_TYPE
+      #58
+      _block
+        #59
+        _dispatch
+          #59
+          _object
+            self
+          : SELF_TYPE
+          init
+          (
+          #59
+          _object
+            newX
+          : Int
+          #59
+          _object
+            newY
+          : Int
+          #59
+          _string
+            "A Circle Object"
+          : String
+          )
+        : SELF_TYPE
+        #60
+        _assign
+          radius
+          #60
+          _object
+            newR
+          : Int
+        : Int
+        #61
+        _object
+          self
+        : SELF_TYPE
+      : SELF_TYPE
+    )
+  #67
+  _class
+    Main
+    IO
+    "complex.cl"
+    (
+    #70
+    _attr
+      void_object
+      Object
+      #0
+      _no_expr
+      : _no_type
+    #72
+    _method
+      main
+      Object
+      #73
+      _block
+        #74
+        _dispatch
+          #74
+          _object
+            self
+          : SELF_TYPE
+          out_string
+          (
+          #74
+          _string
+            "--- COOL Comprehensive Syntax Test Start ---\n\n"
+          : String
+          )
+        : SELF_TYPE
+        #77
+        _dispatch
+          #77
+          _object
+            self
+          : SELF_TYPE
+          out_string
+          (
+          #77
+          _string
+            "1. Testing Class, Let, Dispatch, and Overriding...\n"
+          : String
+          )
+        : SELF_TYPE
+        #78
+        _let
+          my_circle
+          Circle
+          #78
+          _dispatch
+            #78
+            _new
+              Circle
+            : Circle
+            init_circle
+            (
+            #78
+            _int
+              10
+            : Int
+            #78
+            _int
+              20
+            : Int
+            #78
+            _int
+              5
+            : Int
+            )
+          : Circle
+          #78
+          _block
+            #79
+            _dispatch
+              #79
+              _object
+                my_circle
+              : Circle
+              print_info
+              (
+              #79
+              _object
+                self
+              : SELF_TYPE
+              )
+            : IO
+            #80
+            _dispatch
+              #80
+              _dispatch
+                #80
+                _dispatch
+                  #80
+                  _object
+                    self
+                  : SELF_TYPE
+                  out_string
+                  (
+                  #80
+                  _string
+                    "  - My dynamic type is: "
+                  : String
+                  )
+                : SELF_TYPE
+                out_string
+                (
+                #80
+                _dispatch
+                  #80
+                  _object
+                    my_circle
+                  : Circle
+                  get_type_name
+                  (
+                  )
+                : String
+                )
+              : SELF_TYPE
+              out_string
+              (
+              #80
+              _string
+                "\n"
+              : String
+              )
+            : SELF_TYPE
+            #83
+            _dispatch
+              #83
+              _dispatch
+                #83
+                _dispatch
+                  #83
+                  _object
+                    self
+                  : SELF_TYPE
+                  out_string
+                  (
+                  #83
+                  _string
+                    "  - My static type (as Shape) is: "
+                  : String
+                  )
+                : SELF_TYPE
+                out_string
+                (
+                #83
+                _static_dispatch
+                  #83
+                  _object
+                    my_circle
+                  : Circle
+                  Shape
+                  get_type_name
+                  (
+                  )
+                : String
+                )
+              : SELF_TYPE
+              out_string
+              (
+              #83
+              _string
+                "\n\n"
+              : String
+              )
+            : SELF_TYPE
+          : SELF_TYPE
+        : SELF_TYPE
+        #87
+        _dispatch
+          #87
+          _object
+            self
+          : SELF_TYPE
+          out_string
+          (
+          #87
+          _string
+            "2. Testing While loop, If-Else, and Arithmetic...\n"
+          : String
+          )
+        : SELF_TYPE
+        #88
+        _let
+          counter
+          Int
+          #88
+          _int
+            5
+          : Int
+          #88
+          _let
+            result
+            Int
+            #88
+            _int
+              1
+            : Int
+            #88
+            _block
+              #89
+              _loop
+                #89
+                _lt
+                  #89
+                  _int
+                    0
+                  : Int
+                  #89
+                  _object
+                    counter
+                  : Int
+                : Bool
+                #89
+                _block
+                  #90
+                  _assign
+                    result
+                    #90
+                    _mul
+                      #90
+                      _object
+                        result
+                      : Int
+                      #90
+                      _object
+                        counter
+                      : Int
+                    : Int
+                  : Int
+                  #91
+                  _assign
+                    counter
+                    #91
+                    _sub
+                      #91
+                      _object
+                        counter
+                      : Int
+                      #91
+                      _int
+                        1
+                      : Int
+                    : Int
+                  : Int
+                : Int
+              : Object
+              #93
+              _dispatch
+                #93
+                _dispatch
+                  #93
+                  _dispatch
+                    #93
+                    _object
+                      self
+                    : SELF_TYPE
+                    out_string
+                    (
+                    #93
+                    _string
+                      "  - Factorial of 5 is: "
+                    : String
+                    )
+                  : SELF_TYPE
+                  out_int
+                  (
+                  #93
+                  _object
+                    result
+                  : Int
+                  )
+                : SELF_TYPE
+                out_string
+                (
+                #93
+                _string
+                  "\n"
+                : String
+                )
+              : SELF_TYPE
+              #95
+              _cond
+                #95
+                _eq
+                  #95
+                  _object
+                    result
+                  : Int
+                  #95
+                  _int
+                    120
+                  : Int
+                : Bool
+                #96
+                _dispatch
+                  #96
+                  _object
+                    self
+                  : SELF_TYPE
+                  out_string
+                  (
+                  #96
+                  _string
+                    "  - Factorial test PASSED.\n\n"
+                  : String
+                  )
+                : SELF_TYPE
+                #98
+                _dispatch
+                  #98
+                  _object
+                    self
+                  : SELF_TYPE
+                  out_string
+                  (
+                  #98
+                  _string
+                    "  - Factorial test FAILED.\n\n"
+                  : String
+                  )
+                : SELF_TYPE
+              : SELF_TYPE
+            : SELF_TYPE
+          : SELF_TYPE
+        : SELF_TYPE
+        #103
+        _dispatch
+          #103
+          _object
+            self
+          : SELF_TYPE
+          out_string
+          (
+          #103
+          _string
+            "3. Testing Case expression...\n"
+          : String
+          )
+        : SELF_TYPE
+        #104
+        _let
+          s
+          Shape
+          #104
+          _new
+            Shape
+          : Shape
+          #105
+          _let
+            c
+            Circle
+            #105
+            _new
+              Circle
+            : Circle
+            #106
+            _let
+              o
+              Object
+              #106
+              _object
+                self
+              : SELF_TYPE
+              #107
+              _block
+                #108
+                _dispatch
+                  #108
+                  _object
+                    self
+                  : SELF_TYPE
+                  test_object_type
+                  (
+                  #108
+                  _object
+                    s
+                  : Shape
+                  )
+                : Object
+                #109
+                _dispatch
+                  #109
+                  _object
+                    self
+                  : SELF_TYPE
+                  test_object_type
+                  (
+                  #109
+                  _object
+                    c
+                  : Circle
+                  )
+                : Object
+                #110
+                _dispatch
+                  #110
+                  _object
+                    self
+                  : SELF_TYPE
+                  test_object_type
+                  (
+                  #110
+                  _object
+                    o
+                  : Object
+                  )
+                : Object
+              : Object
+            : Object
+          : Object
+        : Object
+        #114
+        _dispatch
+          #114
+          _object
+            self
+          : SELF_TYPE
+          out_string
+          (
+          #114
+          _string
+            "\n4. Testing 'isvoid' and 'not' operators...\n"
+          : String
+          )
+        : SELF_TYPE
+        #115
+        _cond
+          #115
+          _isvoid
+            #115
+            _object
+              void_object
+            : Object
+          : Bool
+          #116
+          _dispatch
+            #116
+            _object
+              self
+            : SELF_TYPE
+            out_string
+            (
+            #116
+            _string
+              "  - 'void_object' is void, as expected.\n"
+            : String
+            )
+          : SELF_TYPE
+          #118
+          _dispatch
+            #118
+            _object
+              self
+            : SELF_TYPE
+            out_string
+            (
+            #118
+            _string
+              "  - 'void_object' is not void. (Error)\n"
+            : String
+            )
+          : SELF_TYPE
+        : SELF_TYPE
+        #121
+        _cond
+          #121
+          _comp
+            #121
+            _isvoid
+              #121
+              _object
+                self
+              : SELF_TYPE
+            : Bool
+          : Bool
+          #122
+          _dispatch
+            #122
+            _object
+              self
+            : SELF_TYPE
+            out_string
+            (
+            #122
+            _string
+              "  - 'self' is not void, as expected.\n\n"
+            : String
+            )
+          : SELF_TYPE
+          #124
+          _dispatch
+            #124
+            _object
+              self
+            : SELF_TYPE
+            out_string
+            (
+            #124
+            _string
+              "  - 'self' is void. (Error)\n\n"
+            : String
+            )
+          : SELF_TYPE
+        : SELF_TYPE
+        #128
+        _dispatch
+          #128
+          _object
+            self
+          : SELF_TYPE
+          out_string
+          (
+          #128
+          _string
+            "5. Testing other expressions (blocks, negation)...\n"
+          : String
+          )
+        : SELF_TYPE
+        #129
+        _let
+          x
+          Int
+          #129
+          _block
+            #130
+            _dispatch
+              #130
+              _object
+                self
+              : SELF_TYPE
+              out_string
+              (
+              #130
+              _string
+                "  - This is inside a block expression.\n"
+              : String
+              )
+            : SELF_TYPE
+            #131
+            _int
+              100
+            : Int
+          : Int
+          #132
+          _block
+            #133
+            _dispatch
+              #133
+              _dispatch
+                #133
+                _dispatch
+                  #133
+                  _object
+                    self
+                  : SELF_TYPE
+                  out_string
+                  (
+                  #133
+                  _string
+                    "  - Block evaluated to: "
+                  : String
+                  )
+                : SELF_TYPE
+                out_int
+                (
+                #133
+                _object
+                  x
+                : Int
+                )
+              : SELF_TYPE
+              out_string
+              (
+              #133
+              _string
+                "\n"
+              : String
+              )
+            : SELF_TYPE
+            #134
+            _dispatch
+              #134
+              _dispatch
+                #134
+                _dispatch
+                  #134
+                  _object
+                    self
+                  : SELF_TYPE
+                  out_string
+                  (
+                  #134
+                  _string
+                    "  - Negative of 10 is: "
+                  : String
+                  )
+                : SELF_TYPE
+                out_int
+                (
+                #134
+                _neg
+                  #134
+                  _int
+                    10
+                  : Int
+                : Int
+                )
+              : SELF_TYPE
+              out_string
+              (
+              #134
+              _string
+                "\n"
+              : String
+              )
+            : SELF_TYPE
+          : SELF_TYPE
+        : SELF_TYPE
+        #137
+        _dispatch
+          #137
+          _object
+            self
+          : SELF_TYPE
+          out_string
+          (
+          #137
+          _string
+            "\n--- Test End ---\n"
+          : String
+          )
+        : SELF_TYPE
+      : SELF_TYPE
+    #142
+    _method
+      test_object_type
+      #142
+      _formal
+        obj
+        Object
+      Object
+      #143
+      _block
+        #144
+        _dispatch
+          #144
+          _object
+            self
+          : SELF_TYPE
+          out_string
+          (
+          #144
+          _string
+            "  - Analyzing an object's type: "
+          : String
+          )
+        : SELF_TYPE
+        #145
+        _typcase
+          #145
+          _object
+            obj
+          : Object
+          #146
+          _branch
+            circ
+            Circle
+            #146
+            _dispatch
+              #146
+              _object
+                self
+              : SELF_TYPE
+              out_string
+              (
+              #146
+              _string
+                "It is a Circle.\n"
+              : String
+              )
+            : SELF_TYPE
+          #147
+          _branch
+            shp
+            Shape
+            #147
+            _dispatch
+              #147
+              _object
+                self
+              : SELF_TYPE
+              out_string
+              (
+              #147
+              _string
+                "It is a Shape (but not a Circle).\n"
+              : String
+              )
+            : SELF_TYPE
+          #148
+          _branch
+            mn
+            Main
+            #148
+            _dispatch
+              #148
+              _object
+                self
+              : SELF_TYPE
+              out_string
+              (
+              #148
+              _string
+                "It is the Main object.\n"
+              : String
+              )
+            : SELF_TYPE
+          #149
+          _branch
+            obj
+            Object
+            #149
+            _dispatch
+              #149
+              _object
+                self
+              : SELF_TYPE
+              out_string
+              (
+              #149
+              _string
+                "It is some other generic Object.\n"
+              : String
+              )
+            : SELF_TYPE
+        : SELF_TYPE
+      : SELF_TYPE
+    )

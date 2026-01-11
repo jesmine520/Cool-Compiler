@@ -1,0 +1,42 @@
+#1
+_program
+  #1
+  _class
+    A
+    Object
+    "if_lub.cl"
+    (
+    )
+  #2
+  _class
+    B
+    A
+    "if_lub.cl"
+    (
+    )
+  #4
+  _class
+    Main
+    Object
+    "if_lub.cl"
+    (
+    #5
+    _method
+      main
+      A
+      #6
+      _cond
+        #6
+        _bool
+          1
+        : Bool
+        #6
+        _new
+          B
+        : B
+        #6
+        _new
+          A
+        : A
+      : A
+    )

@@ -1,0 +1,253 @@
+#1
+_program
+  #1
+  _class
+    Stack
+    Object
+    "stack.cl"
+    (
+    #2
+    _attr
+      top
+      Object
+      #2
+      _int
+        0
+      : Int
+    #3
+    _attr
+      next
+      Stack
+      #3
+      _object
+        self
+      : SELF_TYPE
+    #5
+    _method
+      init
+      Stack
+      #6
+      _block
+        #7
+        _assign
+          top
+          #7
+          _int
+            0
+          : Int
+        : Int
+        #8
+        _assign
+          next
+          #8
+          _object
+            self
+          : SELF_TYPE
+        : SELF_TYPE
+        #9
+        _object
+          self
+        : SELF_TYPE
+      : SELF_TYPE
+    #13
+    _method
+      set_top
+      #13
+      _formal
+        x
+        Object
+      Stack
+      #14
+      _block
+        #14
+        _assign
+          top
+          #14
+          _object
+            x
+          : Object
+        : Object
+        #14
+        _object
+          self
+        : SELF_TYPE
+      : SELF_TYPE
+    #17
+    _method
+      set_next
+      #17
+      _formal
+        n
+        Stack
+      Stack
+      #18
+      _block
+        #18
+        _assign
+          next
+          #18
+          _object
+            n
+          : Stack
+        : Stack
+        #18
+        _object
+          self
+        : SELF_TYPE
+      : SELF_TYPE
+    #22
+    _method
+      push
+      #22
+      _formal
+        x
+        Object
+      Stack
+      #23
+      _block
+        #24
+        _let
+          n
+          Stack
+          #24
+          _dispatch
+            #24
+            _new
+              Stack
+            : Stack
+            init
+            (
+            )
+          : Stack
+          #25
+          _block
+            #26
+            _dispatch
+              #26
+              _object
+                n
+              : Stack
+              set_top
+              (
+              #26
+              _object
+                x
+              : Object
+              )
+            : Stack
+            #27
+            _dispatch
+              #27
+              _object
+                n
+              : Stack
+              set_next
+              (
+              #27
+              _object
+                self
+              : SELF_TYPE
+              )
+            : Stack
+            #28
+            _object
+              n
+            : Stack
+          : Stack
+        : Stack
+      : Stack
+    #33
+    _method
+      pop
+      Stack
+      #33
+      _object
+        next
+      : Stack
+    #35
+    _method
+      peek
+      Object
+      #35
+      _object
+        top
+      : Object
+    )
+  #38
+  _class
+    Main
+    Object
+    "stack.cl"
+    (
+    #39
+    _method
+      main
+      Object
+      #40
+      _block
+        #41
+        _let
+          s
+          Stack
+          #41
+          _dispatch
+            #41
+            _new
+              Stack
+            : Stack
+            init
+            (
+            )
+          : Stack
+          #42
+          _block
+            #43
+            _assign
+              s
+              #43
+              _dispatch
+                #43
+                _object
+                  s
+                : Stack
+                push
+                (
+                #43
+                _int
+                  1
+                : Int
+                )
+              : Stack
+            : Stack
+            #44
+            _assign
+              s
+              #44
+              _dispatch
+                #44
+                _object
+                  s
+                : Stack
+                push
+                (
+                #44
+                _bool
+                  1
+                : Bool
+                )
+              : Stack
+            : Stack
+            #45
+            _dispatch
+              #45
+              _object
+                s
+              : Stack
+              peek
+              (
+              )
+            : Object
+          : Object
+        : Object
+      : Object
+    )

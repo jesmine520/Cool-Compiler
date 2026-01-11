@@ -1,0 +1,57 @@
+#1
+_program
+  #1
+  _class
+    A
+    Object
+    "case_lub.cl"
+    (
+    )
+  #2
+  _class
+    B
+    A
+    "case_lub.cl"
+    (
+    )
+  #3
+  _class
+    C
+    A
+    "case_lub.cl"
+    (
+    )
+  #5
+  _class
+    Main
+    Object
+    "case_lub.cl"
+    (
+    #6
+    _method
+      main
+      A
+      #7
+      _typcase
+        #7
+        _new
+          B
+        : B
+        #8
+        _branch
+          x
+          B
+          #8
+          _new
+            B
+          : B
+        #9
+        _branch
+          y
+          C
+          #9
+          _new
+            C
+          : C
+      : A
+    )

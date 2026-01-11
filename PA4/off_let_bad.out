@@ -1,0 +1,2 @@
+let_bad.cl:3: Inferred type Bool of initialization of x does not conform to identifier's declared type Int.
+Compilation halted due to static semantic errors.
