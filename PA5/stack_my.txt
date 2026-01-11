@@ -1,0 +1,33 @@
+SPIM Version 6.5 of January 4, 2003
+Copyright 1990-2003 by James R. Larus (larus@cs.wisc.edu).
+All Rights Reserved.
+See the file README for a full copyright notice.
+Loaded: ../lib/trap.handler
+--- Stack Demo ---
+
+Is stack empty? Yes
+Stack is empty.
+
+Pushing 'Alice', 100, 'Bob'...
+---- Top of Stack ----
+Bob
+100
+Alice
+---- Bottom of Stack ----
+
+Peeking top element: Bob
+
+Popping an element...
+---- Top of Stack ----
+100
+Alice
+---- Bottom of Stack ----
+
+Is stack empty? No
+
+Popping all elements...
+Stack is empty.
+
+Now trying to pop from an empty stack...
+Error: pop from an empty stack.
+Abort called from class Stack
