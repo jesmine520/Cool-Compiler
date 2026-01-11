@@ -1,0 +1,7 @@
+--- off.out	2025-12-20 02:11:51.569100491 +0800
++++ mine.out	2025-12-20 02:11:51.552211036 +0800
+@@ -1,2 +1,3 @@
+-stack.cl:17: Inferred return type Stack of method push does not conform to declared return type SELF_TYPE.
++stack.cl:6: Type SELF_TYPE of assigned expression does not conform to declared type Stack of identifier next.
++stack.cl:22: In call of method set_next, type SELF_TYPE of parameter n does not conform to declared type Stack.
+ Compilation halted due to static semantic errors.
